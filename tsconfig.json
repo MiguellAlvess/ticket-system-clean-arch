@@ -10,7 +10,7 @@
     "esModuleInterop": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
-    "types": []
+    "types": ["node"]
   },
   "include": ["src"]
 }
