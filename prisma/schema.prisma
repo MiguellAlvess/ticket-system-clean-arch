@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Event {
+  event_id String        @id @default(uuid())
+  description String @db.Text
+  event_price_in_cents Int
+  date DateTime
+  capacity Int
+  tickets Ticket[]
+}
+
+model Ticket {
+  ticket_id String @id @default(uuid())
+  event Event @relation(fields: [event_id], references: [event_id])
+  event_id String
+  email String @unique
+  ticket_price_in_cents Int
+  date DateTime 
+  status String
+}
