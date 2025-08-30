@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: ticket-system-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: ticket-system
+    ports:
+      - "5432:5432"
+    volumes:
+      - ticket-system-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  ticket-system-postgres-data:
