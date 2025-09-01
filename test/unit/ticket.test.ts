@@ -6,4 +6,9 @@ describe("Ticket", () => {
     ticket.cancel()
     expect(ticket.getStatus()).toBe("cancelled")
   })
+  it("should throw an error if email is invalid", () => {
+    expect(() => Ticket.create("", "fakeemail", 190)).toThrow(
+      new Error("Invalid email")
+    )
+  })
 })
